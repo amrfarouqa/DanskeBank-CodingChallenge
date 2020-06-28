@@ -90,12 +90,14 @@
 
 	<script>
 		function enterNumberOfElementsFunc() {
-			var txt;
+			var max_num = 10;
 			var messageNumber = prompt("Please enter number of elements to play with:", "5");
 			if (messageNumber == null || messageNumber == "") {
 				alert("User cancelled the Prompt!");
 				document.getElementById("results").innerHTML = "";
-			} else {
+
+			} else if (messageNumber <= max_num) {
+				document.getElementById("results").innerHTML = "";
 				for (var i = 0; i < messageNumber; i++) {
 					var br = document.createElement("br");
 					var inputVar = document.createElement("INPUT");
@@ -104,8 +106,14 @@
 					document.getElementById("results").appendChild(inputVar);
 					document.getElementById("results").appendChild(br);
 				}
+			} else {
+				alert("Number Limit Reached!");
+				document.getElementById("results").innerHTML = "";
 			}
 		}
+
+
+
 
 		function resetNumbers() {
 			document.getElementById("results").innerHTML = "";
