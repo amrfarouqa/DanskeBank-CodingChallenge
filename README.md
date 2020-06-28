@@ -1,6 +1,6 @@
 # DanskeBank-CodingChallenge
 
- <img src="init/images/logo.png">
+ <img src="init/images/logoSmall.png">
 
 > Coding Challenge Javascript Implementation
 
