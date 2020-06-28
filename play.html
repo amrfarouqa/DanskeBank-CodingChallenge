@@ -95,28 +95,42 @@
 			if (messageNumber == null || messageNumber == "") {
 				alert("User cancelled the Prompt!");
 				document.getElementById("results").innerHTML = "";
-
 			} else if (messageNumber <= max_num) {
 				document.getElementById("results").innerHTML = "";
 				for (var i = 0; i < messageNumber; i++) {
 					var br = document.createElement("br");
 					var inputVar = document.createElement("INPUT");
-					inputVar.setAttribute("type", "text");
-					inputVar.setAttribute("placeholder", "Enter Number...");
+					inputVar.setAttribute("type", "number");
+					inputVar.setAttribute("placeholder", "Enter Number 1-10...");
+					inputVar.addEventListener('input', checkValue);
 					document.getElementById("results").appendChild(inputVar);
 					document.getElementById("results").appendChild(br);
 				}
+
 			} else {
 				alert("Number Limit Reached!");
 				document.getElementById("results").innerHTML = "";
 			}
 		}
 
-
-
-
 		function resetNumbers() {
 			document.getElementById("results").innerHTML = "";
+		}
+
+		function checkValue(e) {
+			var regex=/^[0-9]+$/;
+			var x = e.target.value;
+
+			if (!x.match(regex)) {
+				alert("Must Input Numbers");
+				resetNumbers();
+			} else {
+				if (x > 10) {
+					alert("Number Limit Reached");
+					resetNumbers();
+				}
+			}
+
 		}
 
 	</script>
