@@ -97,10 +97,12 @@
 				document.getElementById("results").innerHTML = "";
 			} else {
 				for (var i = 0; i < messageNumber; i++) {
-					var x = document.createElement("INPUT");
-					x.setAttribute("type", "text");
-					x.setAttribute("placeholder", "Enter Number...");
-					document.getElementById("results").appendChild(x);
+					var br = document.createElement("br");
+					var inputVar = document.createElement("INPUT");
+					inputVar.setAttribute("type", "text");
+					inputVar.setAttribute("placeholder", "Enter Number...");
+					document.getElementById("results").appendChild(inputVar);
+					document.getElementById("results").appendChild(br);
 				}
 			}
 		}
