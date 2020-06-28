@@ -55,14 +55,24 @@
 			<section id="content">
 				<!-- Form -->
 				<section>
-					<h3>Coding Challenge</h3>
-					<p>Determine if you can reach the last element on a positive/negative numbers array, according to
+					<h3 style="text-align: center;">Play Now</h3>
+					<br>
+
+					<ul class="actions fit">
+						<li><a onclick="enterNumberOfElementsFunc()" class="button special fit">Enter Number of Elements
+								to Play With</a></li>
+						<li><a onclick="resetNumbers()" class="button fit">Reset</a></li>
+					</ul>
+
+					<p id="results"></p>
+
+					<!-- <p>Determine if you can reach the last element on a positive/negative numbers array, according to
 						these rules:</p>
 					<ol class="alt">
 						<li>You start at first element.</li>
 						<li>Current element value indicates how many steps you can take at most.
 							(Example: if the value is 3 you can take 0, 1, 2 or 3 steps).</li>
-					</ol>
+					</ol> -->
 					<hr />
 				</section>
 			</section>
@@ -77,6 +87,30 @@
 				Farouq</a>
 		</span>
 	</footer>
+
+	<script>
+		function enterNumberOfElementsFunc() {
+			var txt;
+			var messageNumber = prompt("Please enter number of elements to play with:", "5");
+			if (messageNumber == null || messageNumber == "") {
+				alert("User cancelled the Prompt!");
+				document.getElementById("results").innerHTML = "";
+			} else {
+				for (var i = 0; i < messageNumber; i++) {
+					var x = document.createElement("INPUT");
+					x.setAttribute("type", "text");
+					x.setAttribute("placeholder", "Enter Number...");
+					document.getElementById("results").appendChild(x);
+				}
+			}
+		}
+
+		function resetNumbers() {
+			document.getElementById("results").innerHTML = "";
+		}
+
+	</script>
+
 
 </body>
 
