@@ -55,7 +55,7 @@
 			<section id="content">
 				<!-- Form -->
 				<section>
-					<h3 style="text-align: center;">Play Now</h3>
+					<h3 style="text-align: center;">Start Playing</h3>
 					<br>
 
 					<ul class="actions fit">
@@ -66,13 +66,7 @@
 
 					<p id="results"></p>
 
-					<!-- <p>Determine if you can reach the last element on a positive/negative numbers array, according to
-						these rules:</p>
-					<ol class="alt">
-						<li>You start at first element.</li>
-						<li>Current element value indicates how many steps you can take at most.
-							(Example: if the value is 3 you can take 0, 1, 2 or 3 steps).</li>
-					</ol> -->
+					
 					<hr />
 				</section>
 			</section>
@@ -91,7 +85,7 @@
 	<script>
 		function enterNumberOfElementsFunc() {
 			var max_num = 10;
-			var messageNumber = prompt("Please enter number of elements to play with:", "5");
+			var messageNumber = prompt("Please enter number of elements to play with 1-10 :", "5");
 			if (messageNumber == null || messageNumber == "") {
 				alert("User cancelled the Prompt!");
 				document.getElementById("results").innerHTML = "";
