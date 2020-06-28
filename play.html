@@ -70,6 +70,8 @@
 						<li><a onclick="buttonStartClicked()" class="button special fit">Start</a></li>
 					</ul>
 
+					<p id="GameFinalResults" style="display: none;"></p>
+
 					<hr />
 				</section>
 			</section>
@@ -80,7 +82,8 @@
 	<!-- Footer -->
 	<footer id="footer">
 		<span class="copyright">
-			&copy; Copyright. All rights reserved. Design by <a href="https://amrfarouqa.website" target="_blank">Amr
+			&copy; Copyright. All rights reseconditioned. Design by <a href="https://amrfarouqa.website"
+				target="_blank">Amr
 				Farouq</a>
 		</span>
 	</footer>
@@ -113,7 +116,7 @@
 		function resetNumbers() {
 			document.getElementById("results").innerHTML = "";
 			document.getElementById("buttonStartID").style.display = "none";
-
+			document.getElementById("GameFinalResults").style.display = "none";
 		}
 
 		function checkValueForPrompt(val) {
@@ -144,13 +147,25 @@
 				inputNumbersArray.push(allInputs[i].value);
 			}
 
-			if(solve(currentPosition, inputNumbersArray)){
+			if (solve(currentPosition, inputNumbersArray)) {
 				alert("Goal is Reachable");
-			}else{
+				var br = document.createElement("br");
+				var arraySize = document.createElement("p");
+				var arrayElements = document.createElement("p");
+				var condition = document.createElement("p");
+				condition.innerHTML= "Goal is Winnable";
+				arraySize.innerHTML = "Array Size: " + inputNumbersArray.length;
+				arrayElements.innerHTML = "Array Elements: " + JSON.stringify(inputNumbersArray);
+				document.getElementById("GameFinalResults").style.display = "block";
+				document.getElementById("GameFinalResults").append(condition);
+				document.getElementById("GameFinalResults").append(arraySize);
+				document.getElementById("GameFinalResults").append(arrayElements);
+				
+			} else {
 				alert("Goal is Un-Reachable");
+				document.getElementById("GameFinalResults").style.display = "block";
+				document.getElementById("GameFinalResults").innerHTML = "Goal is Not Winnable";
 			}
-
-
 		}
 
 		function solve(currentPositionValue, inputNumbersArrayValues) {
@@ -163,19 +178,20 @@
 				return false;
 			}
 
-			rv = false;
+			condition = false;
+			var minSteps = 0;
 
 			for (var jump = 1; jump <= inputNumbersArrayValues[currentPositionValue]; jump++) {
 
 				if (currentPositionValue + jump < inputNumbersArrayValues.length) {
 
-					rv = rv || solve(currentPositionValue + jump, inputNumbersArrayValues);
+					minSteps++;
+
+					condition = condition || solve(currentPositionValue + jump, inputNumbersArrayValues);
 
 				}
 			}
-
-			return rv;
-
+			return condition;
 		}
 
 
