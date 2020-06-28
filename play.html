@@ -66,6 +66,9 @@
 
 					<p id="results"></p>
 
+					<ul class="actions fit" id="buttonStartID" style="display: none;">
+						<li><a onclick="buttonStartClicked()" class="button special fit">Start</a></li>
+					</ul>
 					
 					<hr />
 				</section>
@@ -99,7 +102,8 @@
 					inputVar.addEventListener('input', checkValue);
 					document.getElementById("results").appendChild(inputVar);
 					document.getElementById("results").appendChild(br);
-				}
+				}	
+				document.getElementById("buttonStartID").style.display = "block";
 
 			} else {
 				alert("Number Limit Reached!");
@@ -109,6 +113,8 @@
 
 		function resetNumbers() {
 			document.getElementById("results").innerHTML = "";
+			document.getElementById("buttonStartID").style.display = "none";
+
 		}
 
 		function checkValue(e) {
@@ -124,7 +130,10 @@
 					resetNumbers();
 				}
 			}
+		}
 
+		function buttonStartClicked(){
+			alert('Started');
 		}
 
 	</script>
