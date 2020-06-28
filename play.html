@@ -120,7 +120,7 @@
 			var regex = /^[1-9]\d*$/;
 			if (!val.match(regex)) {
 				return false;
-			}else{ 
+			} else {
 				return true;
 			}
 		}
@@ -144,8 +144,12 @@
 				inputNumbersArray.push(allInputs[i].value);
 			}
 
-			console.log(solve(currentPosition, inputNumbersArray));
-			
+			if(solve(currentPosition, inputNumbersArray)){
+				alert("Goal is Reachable");
+			}else{
+				alert("Goal is Un-Reachable");
+			}
+
 
 		}
 
@@ -159,7 +163,7 @@
 				return false;
 			}
 
-			rv = false; 			
+			rv = false;
 
 			for (var jump = 1; jump <= inputNumbersArrayValues[currentPositionValue]; jump++) {
 
@@ -169,14 +173,14 @@
 
 				}
 			}
-			
+
 			return rv;
-		
+
 		}
 
 
 
-		
+
 
 	</script>
 
