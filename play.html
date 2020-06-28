@@ -99,7 +99,7 @@
 					var inputVar = document.createElement("INPUT");
 					inputVar.setAttribute("type", "number");
 					inputVar.setAttribute("placeholder", "Enter Number 1-10...");
-					inputVar.addEventListener('input', checkValue);
+					inputVar.addEventListener("focusout", checkValue);
 					document.getElementById("results").appendChild(inputVar);
 					document.getElementById("results").appendChild(br);
 				}
@@ -117,19 +117,13 @@
 
 		}
 
-		
 		function checkValue(e) {
-			var regex = /^[0-9]+$/;
+			var regex = /^-?\d+$/;
 			var x = e.target.value;
 
 			if (!x.match(regex)) {
 				alert("Must Input Numbers");
 				resetNumbers();
-			} else {
-				if (x > 10) {
-					alert("Number Limit Reached");
-					resetNumbers();
-				}
 			}
 		}
 
