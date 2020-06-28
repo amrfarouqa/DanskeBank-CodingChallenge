@@ -8,8 +8,8 @@
 
 ## About the Project
 
-This project is intended to the selection process to work for [Adeo Web](https://www.adeoweb.biz/). 
-I implemented this project to show and demonstrate my skills with [Symfony 5.1.2](htt
+This project is intended to the selection process to work for [<FuturePros_IT/> programme by Danske Bank Group IT](https://danskebank.lt). 
+I implemented this project to show and demonstrate my skills with pure Javascript. 
 
 ---
 
