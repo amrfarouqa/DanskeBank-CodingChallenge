@@ -42,7 +42,7 @@
 			</ul>
 		</nav>
 	</header>
-
+	<button onclick="topFunction()" id="myTopBtn" title="Go to top">Top</button>
 	<!-- Main -->
 	<section id="main" class="wrapper style1">
 		<header class="major">
@@ -87,18 +87,17 @@
 
 	<script>
 		function enterNumberOfElementsFunc() {
-			var max_num = 10;
-			var messageNumber = prompt("Please enter number of elements to play with 1-10 :", "5");
+			var messageNumber = prompt("Please enter number of elements to play with:", "7");
 			if (messageNumber == null || messageNumber == "") {
 				alert("User cancelled the Prompt!");
 				document.getElementById("results").innerHTML = "";
-			} else if (messageNumber <= max_num) {
+			} else if (!isNaN(messageNumber) && checkValueForPrompt(messageNumber)) {
 				document.getElementById("results").innerHTML = "";
 				for (var i = 0; i < messageNumber; i++) {
 					var br = document.createElement("br");
 					var inputVar = document.createElement("INPUT");
 					inputVar.setAttribute("type", "number");
-					inputVar.setAttribute("placeholder", "Enter Number 1-10...");
+					inputVar.setAttribute("placeholder", "Enter Number...");
 					inputVar.addEventListener("focusout", checkValue);
 					document.getElementById("results").appendChild(inputVar);
 					document.getElementById("results").appendChild(br);
@@ -106,7 +105,7 @@
 				document.getElementById("buttonStartID").style.display = "block";
 
 			} else {
-				alert("Number Limit Reached!");
+				alert("Error!");
 				document.getElementById("results").innerHTML = "";
 			}
 		}
@@ -117,12 +116,21 @@
 
 		}
 
+		function checkValueForPrompt(val) {
+			var regex = /^[1-9]\d*$/;
+			if (!val.match(regex)) {
+				return false;
+			}else{ 
+				return true;
+			}
+		}
+
 		function checkValue(e) {
 			var regex = /^-?\d+$/;
 			var x = e.target.value;
 
 			if (!x.match(regex)) {
-				alert("Must Input Numbers");
+				alert("Must Input Integer Numbers");
 				resetNumbers();
 			}
 		}
@@ -150,9 +158,7 @@
 				return false;
 			}
 
-			rv = false; // Results
-
-			// alert(JSON.stringify(inputNumbersArrayValues));
+			rv = false; 			
 
 			for (var jump = 1; jump <= inputNumbersArrayValues[currentPositionValue]; jump++) {
 
@@ -162,7 +168,8 @@
 
 				}
 			}
-			alert(rv);
+			console.log(rv);
+		
 		}
 
 
