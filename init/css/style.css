@@ -8,6 +8,11 @@
   height: auto;
 }
 
+
+#homeButtons{
+	text-align: center;
+}
+
 /* Basic */
 #myTopBtn {
 	display: none;
